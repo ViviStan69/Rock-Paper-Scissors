@@ -23,10 +23,10 @@
 </body>
 
 <script>
-    
+
     function getComputerChoice() {
         const rps = ["Rock", "Paper", "Scissors"];
-        let choice_index = Math.floor(Math.random()*rps.length);
+        let choice_index = Math.floor(Math.random() * rps.length);
         return rps[choice_index];
     }
 
@@ -37,34 +37,45 @@
         if (playerSelection == computerSelection) {
             return "Tie";
         }
-
         if (playerSelection == "rock") {
             if (computerSelection == "scissors") {
                 return "Win";
             }
         }
-
         if (playerSelection == "paper") {
             if (computerSelection == "rock") {
                 return "Win";
             }
         }
-
         if (playerSelection == "scissors") {
             if (computerSelection == "paper") {
                 return "Win";
             }
         }
-        
         else return "Loss";
     }
+
+    function game() {
+        let playerScore = 0;
+        let computerScore = 0;
+        for (let i = 0; i < 5; i++) {
+            result = playRound(prompt("Rock, Paper or Scissors?"), getComputerChoice());
+            if (result == "Win") {
+                playerScore++;
+            }
+            if (result == "Loss") {
+                computerScore++;
+            }
+        }
+        return `Player ${playerScore} - ${computerScore} Computer`
+    }
+
 
     const playerChoice = "Rock";
     // let playerChoice = prompt("Rock, Paper or Scissors?")
     console.log(getComputerChoice());
-    for (let i=0; i<5; i++) {
-        console.log(playRound(playerChoice, getComputerChoice()));
-    }
+    console.log(playRound(playerChoice, getComputerChoice()));
+    console.log(game());
     
 </script>
 
