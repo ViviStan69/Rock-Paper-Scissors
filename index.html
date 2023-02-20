@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<style>
+    body {
+        background-color: black;
+        color: greenyellow;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <p>RPS</p>
+</body>
+
+<script>
+    
+    function getComputerChoice() {
+        const rps = ["Rock", "Paper", "Scissors"];
+        let choice_index = Math.floor(Math.random()*rps.length);
+        return rps[choice_index];
+    }
+
+    function playRound(playerSelection, computerSelection) {
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = computerSelection.toLowerCase();
+
+        if (playerSelection == computerSelection) {
+            return "Tie";
+        }
+
+        if (playerSelection == "rock") {
+            if (computerSelection == "scissors") {
+                return "Win";
+            }
+        }
+
+        if (playerSelection == "paper") {
+            if (computerSelection == "rock") {
+                return "Win";
+            }
+        }
+
+        if (playerSelection == "scissors") {
+            if (computerSelection == "paper") {
+                return "Win";
+            }
+        }
+        
+        else return "Loss";
+    }
+
+    const playerChoice = "Rock";
+    // let playerChoice = prompt("Rock, Paper or Scissors?")
+    console.log(getComputerChoice());
+    for (let i=0; i<5; i++) {
+        console.log(playRound(playerChoice, getComputerChoice()));
+    }
+    
+</script>
+
+
+
+</html>
